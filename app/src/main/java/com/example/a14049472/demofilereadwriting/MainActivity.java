@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnWrite=(Button)findViewById(R.id.btnWrite);
         btnRead=(Button)findViewById(R.id.btnRead);
+        tv=(TextView)findViewById(R.id.tv);
         final String folderLocation = Environment.getExternalStorageDirectory().getAbsolutePath()+"/MyFolder";
         File folder = new File(folderLocation);
         if(folder.exists()==false){
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                         while(line!=null){
                             data+=line + "\n";
                             line=br.readLine();
+                            tv.setText(data);
                         }
                         br.close();
                         reader.close();
